@@ -156,10 +156,73 @@ ssh -L 8081:127.0.0.1:8081 usuario@IP_DEL_SERVIDOR
 # y abrir http://127.0.0.1:8081 en el navegador local
 ```
 
+> Si el puerto 8081 de tu equipo está ocupado (por ejemplo, por el entorno local), usa otro puerto local:
+> `ssh -L 9081:127.0.0.1:8081 usuario@IP_DEL_SERVIDOR` y abre http://127.0.0.1:9081
+
 ## Capturas
 
-Las capturas del funcionamiento se encuentran en la carpeta [`capturas/`](capturas/).
+### 1. Estructura y código
+
+|                        |                                          |
+| ---------------------- | ---------------------------------------- |
+| Estructura de carpetas | ![](capturas/02-estructura-carpetas.png) |
+| init.sql               | ![](capturas/02b-init-sql.png)           |
+| .env.example           | ![](capturas/02d-env-example.png)        |
+| .gitignore             | ![](capturas/02e-gitignore.png)          |
+| database.php           | ![](capturas/03-database-php.png)        |
+| index.php              | ![](capturas/03c-index-php.png)          |
+| Estructura de app/     | ![](capturas/03f-estructura-app.png)     |
+| Dockerfile             | ![](capturas/04-dockerfile.png)          |
+| nginx/default.conf     | ![](capturas/05-nginx-default-conf.png)  |
+| compose.yaml           | ![](capturas/06-compose-yaml.png)        |
+
+### 2. Ejecución en local (Windows + Docker Desktop)
+
+![Construcción de imágenes](capturas/08-compose-up-build.png)
+![Servicios healthy](capturas/08b-compose-up-healthy.png)
+![docker compose ps](capturas/09-compose-ps.png)
+![Docker Desktop](capturas/10-docker-desktop.png)
+![Aplicación en local](capturas/11-app-local.png)
+![phpMyAdmin en local](capturas/12-phpmyadmin-local.png)
+![Pruebas CRUD](capturas/13-pruebas-crud.png)
+
+### 3. Persistencia
+
+![stop / start](capturas/14-stop-start.png)
+![Datos tras reinicio](capturas/15-app-tras-reinicio.png)
+![down / up](capturas/16-down-up.png)
+![Datos tras recrear contenedores](capturas/17-persistencia.png)
+![Volumen mysql_data](capturas/18-volumen.png)
+
+### 4. Backup y restauración
+
+![Backup](capturas/19-backup.png)
+![Contenido del backup](capturas/19b-backup-sql.png)
+![Simulación de pérdida](capturas/20-tareas-eliminadas.png)
+![Comandos de restauración](capturas/21b-restore-comandos.png)
+![Datos restaurados](capturas/21-restore.png)
+
+### 5. GitHub
+
+![git push](capturas/23-git-push.png)
+![Repositorio](capturas/23b-github-repo.png)
+
+### 6. Despliegue en Ubuntu Server
+
+![IP del servidor](capturas/24-ip-servidor.png)
+![Servicio SSH](capturas/24b-ssh-status.png)
+![Conexión SSH con clave](capturas/25-ssh-clave.png)
+![Docker en Ubuntu](capturas/26-docker-ubuntu.png)
+![Firewall UFW](capturas/27-ufw.png)
+![git clone](capturas/28-git-clone.png)
+![Permisos del .env](capturas/28c-permisos-env.png)
+![Despliegue](capturas/29b-compose-up-servidor.png)
+![Servicios healthy en el servidor](capturas/29c-compose-up-healthy-servidor.png)
+![docker compose ps en el servidor](capturas/29-compose-ps-servidor.png)
+![Aplicación desplegada](capturas/30-app-servidor.png)
+![phpMyAdmin no accesible desde fuera](capturas/31-pma-bloqueado.png)
+![phpMyAdmin mediante túnel SSH](capturas/32-pma-tunel.png)
 
 ## Autor
 
-Raúl — 2º DAW
+Ramón Sáenz Corcuera — 2º DAW · Contenedores
